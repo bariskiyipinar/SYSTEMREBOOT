@@ -255,23 +255,23 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
-        guid: e542d19100ff504498f219af72b5e528
-        position: {x: 43.493927, y: 42.75383, z: 0}
-        rotation: {x: 0, y: 0, z: 0.7111589, w: 0.70303136}
-        length: 9.449738
+        guid: 32e9ebff9c40cb143983f6f78daf289e
+        position: {x: 43.630013, y: 43.215347, z: 0}
+        rotation: {x: 0, y: 0, z: 0.7071068, w: 0.70710677}
+        length: 9.245441
         parentId: -1
         color:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4278190335
       - name: bone_2
-        guid: 59574a7f2e7f7a34ebac94aca631ac13
-        position: {x: 9.449739, y: -0.0000023588073, z: 0}
-        rotation: {x: 0, y: 0, z: -0.71797204, w: 0.69607204}
-        length: 16.729153
+        guid: c67fd0ae487510d4e8970e1a5925ae93
+        position: {x: 9.2454405, y: -0.000002439116, z: 0}
+        rotation: {x: 0, y: 0, z: -0.71483845, w: 0.6992897}
+        length: 17.033525
         parentId: 0
         color:
           serializedVersion: 2
-          rgba: 4278190080
+          rgba: 4278255615
       spriteID: 72f951d033ce66f459fc2a3063980e69
       internalID: 1462340271
       vertices:
@@ -504,19 +504,11 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0.83
-        weight[1]: 0.17000002
+      - weight[0]: 1
+        weight[1]: 0
         weight[2]: 0
         weight[3]: 0
         boneIndex[0]: 0
-        boneIndex[1]: 1
-        boneIndex[2]: 0
-        boneIndex[3]: 0
-      - weight[0]: 1
-        weight[1]: 0
-        weight[2]: 0
-        weight[3]: 0
-        boneIndex[0]: 1
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
@@ -568,8 +560,16 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0.68
-        weight[1]: 0.32
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
         weight[2]: 0
         weight[3]: 0
         boneIndex[0]: 1
@@ -915,23 +915,23 @@ TextureImporter:
       tessellationDetail: 0
       bones:
       - name: bone_1
-        guid: 2b82673a504d0884e86991759a20c590
-        position: {x: 44.291077, y: 34.634834, z: 0}
-        rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-        length: 10.118613
+        guid: 91b3373aa078d9942afc5d2490eddb66
+        position: {x: 43.7274, y: 36.13082, z: 0}
+        rotation: {x: 0, y: 0, z: 0.71002257, w: 0.704179}
+        length: 8.021377
         parentId: -1
         color:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4278190335
       - name: bone_2
-        guid: 82b4124f1a6564348a2d51917e32961c
-        position: {x: 10.11861, y: 0.00000089855746, z: 0}
-        rotation: {x: 0, y: 0, z: -0.716768, w: 0.6973118}
-        length: 16.717363
+        guid: ab8a432ce5cc0404cba73eb9ae3c7ffa
+        position: {x: 8.021377, y: -0.00000006664992, z: 0}
+        rotation: {x: 0, y: 0, z: -0.71263534, w: 0.70153475}
+        length: 17.832548
         parentId: 0
         color:
           serializedVersion: 2
-          rgba: 4278190080
+          rgba: 4278255615
       spriteID: df934e2af51626e4fadad92ccd12b45b
       internalID: 1042965809
       vertices:
@@ -1112,8 +1112,8 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0.8932851
-        weight[1]: 0.106714904
+      - weight[0]: 0.8493123
+        weight[1]: 0.1506877
         weight[2]: 0
         weight[3]: 0
         boneIndex[0]: 0
@@ -1160,8 +1160,8 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0.5675773
-        weight[1]: 0.4324227
+      - weight[0]: 0.57178545
+        weight[1]: 0.42821455
         weight[2]: 0
         weight[3]: 0
         boneIndex[0]: 0

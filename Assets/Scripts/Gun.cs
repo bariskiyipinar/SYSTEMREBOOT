@@ -23,5 +23,7 @@ public class Gun : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * bulletSpeed;
+
+        Destroy(bullet, 2f);
     }
 }

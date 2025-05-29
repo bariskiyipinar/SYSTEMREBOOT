@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
     private Transform playerPos;
     public float speed;
 
+    RebootScore rebootScore;
     private void Start()
     {
         playerPos=GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+       rebootScore=FindAnyObjectByType<RebootScore>();
     }
 
 
@@ -35,6 +39,17 @@ public class EnemyController : MonoBehaviour
            
             GetComponent<SpriteRenderer>().flipX = false;
             transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(this.gameObject);
+            rebootScore.UpdateScore(100);
         }
     }
 

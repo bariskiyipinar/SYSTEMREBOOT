@@ -9,25 +9,27 @@ public class BoneFollowMouse : MonoBehaviour
     void Update()
     {
         Vector3 mouseScreenPos = Input.mousePosition;
-        float distance = Mathf.Abs(mainCamera.transform.position.z - transform.position.z);
-        mouseScreenPos.z = distance;
-
+        mouseScreenPos.z = Mathf.Abs(mainCamera.transform.position.z - transform.position.z);
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
         mouseWorldPos.z = transform.position.z;
 
         Vector3 direction = (mouseWorldPos - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Kolun yönünü belirle
+
+        float rotationOffset = 0f;
+
         if (playerController.FacingLeft)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, angle + 180f);
-            gunHolder.localScale = new Vector3(-1f, -1f, 1f); // hem X hem Y ekseninde ters çevir
+            rotationOffset = 180f;
+            gunHolder.localScale = new Vector3(1f, -1f, 1f);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            rotationOffset = 0f;
             gunHolder.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        transform.rotation = Quaternion.Euler(0f, 0f, angle + rotationOffset);
     }
 }
