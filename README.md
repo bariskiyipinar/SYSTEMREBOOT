@@ -32,7 +32,7 @@ Ek Bilgi:
 
 ![1](ScreenShots/SystemReboot1.png)
 ![2](ScreenShots/SystemReboot2.png)
-![3](ScreenShots/SystemReboot3.png)
+![3](ScreenShots/systemReboot3.png)
 ![4](ScreenShots/SystemReboot4.png)
 
 
