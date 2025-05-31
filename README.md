@@ -2,6 +2,8 @@
 
 **System Reboot**, 2D top-down aksiyon türünde, dalga tabanlı bir hayatta kalma oyunudur. Oyuncu, düşman dalgalarına karşı mücadele ederken sistemi yeniden başlatmak için ilerler. Basit ama heyecanlı mekanikler ve dinamik ses sistemi ile eğlenceli bir deneyim sunar.
 
+Ek Bilgi:
+ Oyundaki karakterleri,arka planı gibi spriteleri Piskel yardımıyla sıfırdan kendim yaptım.
 ---
 
 ## 🎮 Oynanış Özellikleri
@@ -29,10 +31,9 @@
 ## 🎨 Görseller
 
 ![1](ScreenShots/SystemReboot1.png)
-
-
-
-
+![2](ScreenShots/SystemReboot2.png)
+![3](ScreenShots/SystemReboot3.png)
+![4](ScreenShots/SystemReboot4.png)
 
 
 ---
