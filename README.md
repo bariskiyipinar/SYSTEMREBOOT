@@ -28,9 +28,22 @@
 
 ## 🎨 Görseller
 
+![1](ScreenShots/SystemReboot1.png)
 
 
 
+
+
+
+---
+
+## 📩 İletişim
+
+Projeyle ilgili her türlü soru, geri bildirim veya iş birliği için iletişime geçmekten çekinmeyin!
+
+---
+
+**Teşekkürler!** 🙏  
 
 ## 🚀 Kurulum ve Çalıştırma
 
