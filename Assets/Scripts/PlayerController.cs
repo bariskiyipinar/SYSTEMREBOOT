@@ -10,11 +10,21 @@ public class PlayerController : MonoBehaviour
                                               {
                                                    get { return facingLeft} */
                                                 
-    
+    PlayerHealth health;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        health=FindAnyObjectByType<PlayerHealth>();
+
+    }
+
+    private void OnEnable()
+    {
+        if (SoundManager.instance != null && SoundManager.instance.BGSound != null)
+        {
+            SoundManager.instance.BGSound.pitch = 1f;
+        }
     }
 
     void Update()
@@ -46,5 +56,19 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            health.TakeDamage(1);
+        }
+        if (collision.gameObject.CompareTag("HealthChest"))
+        {
+            health.AddHealth(1);
+            Destroy(collision.gameObject);
+        }
     }
 }

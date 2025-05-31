@@ -8,6 +8,7 @@ public class RebootScore : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     public int score = 0;
+    public int enemyKillCount = 0;
 
     private void Start()
     {
@@ -21,5 +22,17 @@ public class RebootScore : MonoBehaviour
 
         scoreText.text = score.ToString();
 
+    }
+
+
+    public void AddEnemyKill()
+    {
+        enemyKillCount++;
+      
+    }
+
+    public int GetEnemyKillCount()
+    {
+        return enemyKillCount;
     }
 }

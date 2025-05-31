@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -5,6 +6,7 @@ public class Gun : MonoBehaviour
     [Header("Silah Ayarlarý")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed = 10f;
+
 
     private void Update()
     {
@@ -24,6 +26,11 @@ public class Gun : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * bulletSpeed;
 
+  
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
         Destroy(bullet, 2f);
     }
+
 }

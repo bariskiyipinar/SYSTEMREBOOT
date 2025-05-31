@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     public float speed;
 
     RebootScore rebootScore;
+    public int enemycount = 0;
+
     private void Start()
     {
         playerPos=GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -50,7 +52,9 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
             rebootScore.UpdateScore(100);
+            rebootScore.AddEnemyKill();
         }
     }
 
+ 
 }

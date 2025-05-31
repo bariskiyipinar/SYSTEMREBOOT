@@ -4,21 +4,32 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemies;
+    public GameObject[] enemies;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform[] chestPoint;
     [SerializeField] private Image rebootBar;
-    [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private float spawnInterval = 5f;
+    [SerializeField] private GameObject HealthChestPrefab;
 
     private int waveCount = 1;
     private int maxWaves = 5;
-    private int enemiesPerWave = 1;
+    private int enemiesPerWave = 0;
+
+    RebootScore score;
+    EnemyController enemy;
 
     [SerializeField] private Volume postProcessVolume;
     private ChromaticAberration chromaticAberration;
-    private float glitchIntensity = 0f;
+
+
+    [SerializeField] private GameObject winningPanel;
+    [SerializeField] private TextMeshProUGUI winningScore;
+    [SerializeField] private TextMeshProUGUI enemyCount;
+    [SerializeField] private GameObject Player;
 
     private void Start()
     {
@@ -31,6 +42,10 @@ public class SpawnManager : MonoBehaviour
                 Debug.LogWarning("Chromatic Aberration not found in post-processing profile!");
             }
         }
+
+        winningPanel.SetActive(false);
+        score = FindAnyObjectByType<RebootScore>();
+        enemy=FindAnyObjectByType<EnemyController>();
     }
 
     IEnumerator SpawnWaves()
@@ -54,6 +69,7 @@ public class SpawnManager : MonoBehaviour
             if (waveCount < 2 || enemies.Length < 2)
             {
                 enemyToSpawn = enemies[0];
+                
             }
             else
             {
@@ -71,12 +87,36 @@ public class SpawnManager : MonoBehaviour
             }
         }
 
+        if (waveCount == 2 && HealthChestPrefab != null)
+        {
+            int spawnIndex = Random.Range(0, chestPoint.Length);
+            Instantiate(HealthChestPrefab, chestPoint[spawnIndex].position, Quaternion.identity);
+        }
+        if (waveCount == 3 && HealthChestPrefab != null)
+        {
+            int spawnIndex=Random.Range(0, chestPoint.Length);
+            Instantiate(HealthChestPrefab, chestPoint[spawnIndex].position, Quaternion.identity);
+        }
+        if (waveCount == 4 && HealthChestPrefab != null)
+        {
+            int spawnIndex = Random.Range(0, chestPoint.Length);
+            Instantiate(HealthChestPrefab, chestPoint[spawnIndex].position, Quaternion.identity);
+        }
+        if (waveCount == 5 && HealthChestPrefab != null)
+        {
+            int spawnIndex = Random.Range(0, chestPoint.Length);
+            Instantiate(HealthChestPrefab, chestPoint[spawnIndex].position, Quaternion.identity);
+        }
+
+
+
+
         UpdateRebootBar();
     }
 
     void IncreaseDifficulty()
     {
-        enemiesPerWave = Mathf.Min(10, enemiesPerWave + 1);
+        enemiesPerWave = Mathf.Min(5, enemiesPerWave + 1);
 
     }
 
@@ -96,8 +136,30 @@ public class SpawnManager : MonoBehaviour
 
             if (waveCount > maxWaves)
             {
-                SceneManager.LoadScene("Menu");
+                Player.GetComponent<SpriteRenderer>().enabled = false;
+                Time.timeScale = 0;
+                winningPanel.SetActive(true);
+                winningScore.text=score.score.ToString();
+                enemyCount.text = score.GetEnemyKillCount().ToString();
+            
+
+
+                if (SoundManager.instance != null && SoundManager.instance.BGSound != null)
+                {
+                    SoundManager.instance.BGSound.pitch = 0.5f; 
+                }
+
             }
+        }
+    }
+    public void NewGameButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (SoundManager.instance != null && SoundManager.instance.BGSound != null)
+        {
+            SoundManager.instance.BGSound.pitch = 1f;
         }
     }
 
@@ -105,7 +167,7 @@ public class SpawnManager : MonoBehaviour
     {
         float maxIntensity = Mathf.Clamp01(0.3f + waveCount * 0.15f);
         float glitchDuration = 2f;
-        float fadeOutDuration = 1.5f;
+    
 
 
         chromaticAberration.intensity.value = maxIntensity;

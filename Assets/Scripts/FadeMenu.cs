@@ -26,17 +26,36 @@ public class FadeMenu : MonoBehaviour
     }
 
 
-    IEnumerator fadeTime(int amount)
+    IEnumerator fadeTime(float duration)
     {
         fadePanel.enabled = true;
-        yield return new WaitForSeconds(amount);
+
+        float elapsed = 0f;
+        float startPitch = SoundManager.instance.BGSound.pitch;
+        float targetPitch = 0f; 
+
+     
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            SoundManager.instance.BGSound.pitch = Mathf.Lerp(startPitch, targetPitch, t);
+            yield return null;
+        }
+
         Enemy.SetActive(false);
-        yield return new WaitForSeconds(amount);
+        yield return new WaitForSeconds(duration);
+
         bullet.SetActive(false);
-        yield return new WaitForSeconds(amount);
+        yield return new WaitForSeconds(duration);
+
         Player.SetActive(false);
-        yield return new WaitForSeconds(amount);
+        yield return new WaitForSeconds(duration);
+
+    
         SceneManager.LoadScene("Game");
 
+     
     }
+
 }
